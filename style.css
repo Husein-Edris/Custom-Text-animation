@@ -1,57 +1,24 @@
-.global-tooltip {
+.animated-text {
+    overflow: hidden;
     position: relative;
-    line-height: 1.2;
 }
 
-.global-tooltip::before {
-	position: absolute;
-    font-family: dashicons;
-    right: -25px;
-    content: "\f223";
-    display: inline-block;
-    border-radius: 50%;
-    background-color: #E6585A;
-    color: #fff;
-    padding: 0;
-    line-height: 0.8;
-    font-style: normal;
-    vertical-align: top;
-    text-align: center;
-    transition: color .1s ease-in;
-}
-
-.global-tooltip:hover::after {
-    content: " ";
+.animated-text::after {
+    content: '';
     position: absolute;
-    top: -150%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #FDEEEE;
-    color: #2A363F;
-	line-height: 1.2em;
-    padding: 5px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    white-space: normal;
-    width: 100%;
-    font-size: 13px !important;
-    z-index: 9;
+    right: -20px;
+    bottom: 6px;
+    width: 14px;
+    height: 2px;
+    background-color: #DAFDBA;
+    animation: blink 0.5s linear infinite;
 }
 
-.global-tooltip:hover::after {
-    opacity: 1;
-}
-
-
-.global-tooltip.haftungsschutz:hover::after {
-    content: "100% Absicherung mit der Beschützerbox-IP";
-}
-
-@media only screen and (max-width: 1200px) {
-    .global-tooltip.haftungsschutz:hover::after{
-        max-width: 100%;
-        margin-left: 0%;
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
